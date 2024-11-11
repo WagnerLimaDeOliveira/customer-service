@@ -6,15 +6,15 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class CustomerPoliciesRequest extends PanacheEntityBase {
+public class CustomerPolicies extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name= "customer_id", nullable = false)
+    @Column(name = "customer_id", nullable = false)
     Long customerId;
 
-    @Column(name="policy_number", nullable = false)
+    @Column(name = "policy_number", nullable = false)
     UUID policyNumber;
 
     public Long getCustomerId() {

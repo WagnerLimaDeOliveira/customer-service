@@ -14,22 +14,22 @@ public class Customer extends PanacheEntityBase {
     @Column(name = "first_name", nullable = false)
     String firstName;
 
-    @Column(name="last_name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     String lastName;
 
-    @Column(name="email", nullable = false)
+    @Column(name = "email", nullable = false)
     String email;
 
-    @Column(name="phone_number", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     String phoneNumber;
 
-    @Column(name="adress", nullable = false)
+    @Column(name = "adress", nullable = false)
     String address;
 
-    @Column(name="date_of_birth", nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     Instant dateOfBirth;
 
-    @Column(name="registration_date", nullable = false)
+    @Column(name = "registration_date", nullable = false)
     Instant registrationDate;
 
     public Long getId() {
