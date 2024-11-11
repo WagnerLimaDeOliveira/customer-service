@@ -21,7 +21,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -59,7 +58,6 @@ public class PolicyControllerTest {
         TestContainerSetupHelper.stopContainers();
     }
 
-
     @Test
     public void getCustomerByPolicyId_shouldCreateAndReturnCustomer() throws JsonProcessingException {
         Customer customer = new Customer();
@@ -77,7 +75,7 @@ public class PolicyControllerTest {
         String requestedCustomerPolicy = objectMapper.writeValueAsString(customerPolicy);
         customerService.updateCustomerPolicy(requestedCustomerPolicy);
 
-       Customer requestedCustomer =  given().contentType(ContentType.JSON)
+        Customer requestedCustomer = given().contentType(ContentType.JSON)
                 .when()
                 .get("/policy/" + policyNumber)
                 .then()
@@ -89,8 +87,8 @@ public class PolicyControllerTest {
                 .body("phoneNumber", equalTo(customer.getPhoneNumber()))
                 .body("id", equalTo(createdCustomer.getId().intValue())).extract().as(Customer.class);
 
-       assertEquals(requestedCustomer.getDateOfBirth().truncatedTo(ChronoUnit.SECONDS), createdCustomer.getDateOfBirth().truncatedTo(ChronoUnit.SECONDS));
-       assertEquals(requestedCustomer.getRegistrationDate().truncatedTo(ChronoUnit.SECONDS), createdCustomer.getRegistrationDate().truncatedTo(ChronoUnit.SECONDS));
+        assertEquals(requestedCustomer.getDateOfBirth().truncatedTo(ChronoUnit.SECONDS), createdCustomer.getDateOfBirth().truncatedTo(ChronoUnit.SECONDS));
+        assertEquals(requestedCustomer.getRegistrationDate().truncatedTo(ChronoUnit.SECONDS), createdCustomer.getRegistrationDate().truncatedTo(ChronoUnit.SECONDS));
     }
 
 }
