@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  teamcity-server:
+    image: jetbrains/teamcity-server
+    container_name: teamcity-server-instance
+    ports:
+      - "8111:8111"
+    volumes:
+      - "/c/Users/W. Lima de Oliveira/TeamCityDocker/data/teamcity_server/datadir:/data/teamcity_server/datadir"
+      - "/c/Users/W. Lima de Oliveira/TeamCityDocker/opt/teamcity/logs:/opt/teamcity/logs"
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS=-Xmx2g
