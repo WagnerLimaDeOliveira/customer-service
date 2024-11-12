@@ -14,6 +14,13 @@ public class PolicyController {
     @Inject
     CustomerService customerService;
 
+    /**
+     * Retrieves customer information based on the provided policy number.
+     *
+     * @param policyNumber the unique identifier of the policy.
+     * @return Customer object containing customer details associated with the given policy number.
+     * @throws WebApplicationException if the customer is not found, returning a 404 Not Found status.
+     */
     @GET
     @Path("{policyNumber}")
     @Produces(MediaType.APPLICATION_JSON)
